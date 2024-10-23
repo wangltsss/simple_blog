@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>All Posts</h2>
+<div class="card-container">
+    {% for post in posts %}
+    <div class="card">
+        <a href="{{ url_for('post_detail', slug=post['slug']) }}">
+            <div class="card-image">
+                <img src="{{ url_for('static', filename='images/post_placeholder.png') }}" alt="{{ post['title'] }}">
+                <div class="tooltip">Read More</div>
+            </div>
+            <div class="card-content">
+                <h3>{{ post['title'] }}</h3>
+                <p class="post-date">{{ post['date'] }}</p>
+                <p class="card-excerpt">{{ post['excerpt'] | safe }}</p>
+            </div>
+        </a>
+    </div>
+    {% else %}
+    <p>No posts available.</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }} - STW's Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1><a href="{{ url_for('home') }}">STW's Blog</a></h1>
+        </div>
+    </header>
+    <nav>
+        <a href="{{ url_for('home') }}">
+            <!-- Home Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" height="24" width="24" viewBox="0 0 24 24">
+                <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+            Home
+        </a>
+        <!-- Additional navigation links can be added here -->
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="footer-content">
+            {{ current_year }} STW's Blog
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="Twitter">
+                    <!-- Twitter Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" height="24" width="24" viewBox="0 0 24 24">
+                        <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.3 4.3 0 001.89-2.37 8.6 8.6 0 01-2.73 1.04 4.28 4.28 0 00-7.3 3.9A12.13 12.13 0 013 4.79a4.27 4.27 0 001.33 5.7 4.24 4.24 0 01-1.94-.54v.06a4.28 4.28 0 003.43 4.19 4.26 4.26 0 01-1.93.07 4.28 4.28 0 003.99 2.97A8.58 8.58 0 012 19.54a12.1 12.1 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19 0-.39-.01-.58A8.72 8.72 0 0024 4.59a8.5 8.5 0 01-2.54.7z"/>
+                    </svg>
+                </a>
+                <a href="#" target="_blank" aria-label="Facebook">
+                    <!-- Facebook Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" height="24" width="24" viewBox="0 0 24 24">
+                        <path d="M22 12c0-5.522-4.477-10-10-10S2 6.478 2 12c0 4.991 3.657 9.128 8.438 9.879V15.467h-2.54v-2.943h2.54V10.6c0-2.506 1.492-3.89 3.778-3.89 1.094 0 2.238.195 2.238.195v2.462h-1.26c-1.242 0-1.632.771-1.632 1.562v1.874h2.773l-.443 2.943h-2.33v6.412C18.343 21.128 22 16.991 22 12z"/>
+                    </svg>
+                </a>
+                <!-- Add more icons as needed -->
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

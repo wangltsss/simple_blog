@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+    <h2>{{ post['title'] }}</h2>
+    <p class="post-date">{{ post['date'] }}</p>
+    <div class="post-content">
+        {{ post['content'] | safe }}
+    </div>
+    <p>
+        <a href="{{ url_for('home') }}" class="button circle-button" title="Back to Home">
+        </a>
+    </p>
+</article>
+{% endblock %}
