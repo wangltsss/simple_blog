@@ -1,15 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>All Posts</h2>
+
+
+<div class="resume-section">
+    <section class="self-intro">
+        <h2 id="resume">About Me</h2>
+        <div class="profile-pic">
+            <img src="{{ url_for('static', filename='images/memyself.jpg') }}" alt="Shawn Wang">
+        </div>
+        <p>Hello! I'm Shawn (Shentong) Wang. Welcome to my site and feel free to look around.</p>
+        <P>There isn't much on this website now but I would try to update it as much as possible.</P>
+    </section>
+
+    <section class="work-experience">
+        <h2>Work Experience</h2>
+        <div class="experience">
+            <h3>Test Automation Coop</h3>
+            <h4>Christie Digital Systems · Co-op | May 2023 - Aug 2024</h4>
+            <ul>
+                <li>Assist with coding/maintaining automated tests and frameworks for software and hardware products(including User Interface-based testing).</li>
+                <li>Execute automated test plans, verify the results, and report defects to the appropriate stakeholders.</li>
+                <li>Work with the Software QA and Development teams to assess challenges in their testing processes and implement solutions to resolve them.</li>
+                <li>Help in fix/enhancing a central web based internal asset management system.</li>
+            </ul>
+        </div>
+        <div class="experience">
+            <h3>Software Developer Internship</h3>
+            <h4>Beijing Xiongtong Electronic Technology Co., Ltd. · Internship | Jun 2021 - Aug 2021</h4>
+            <ul>
+                <li>Developed a graphical console that switches the relays on customized relay boards on and off. It is a web app based on the Browser/Server architecture, thereby provides compatibility with a variety of devices..</li>
+                <li>Worked on developing a Warehouse Management System that keeps track of assets of the company to enhance management. This system supports operations like stock-in, stock-out, stock query, etc.</li>
+            </ul>
+        </div>
+    </section>
+</div>
+
+
+
+<h2 id="blog-posts">All Posts</h2>
 <div class="card-container">
     {% for post in posts %}
     <div class="card">
         <a href="{{ url_for('post_detail', slug=post['slug']) }}">
-            <div class="card-image">
-                <img src="{{ url_for('static', filename='images/post_placeholder.png') }}" alt="{{ post['title'] }}">
-                <div class="tooltip">Read More</div>
-            </div>
             <div class="card-content">
                 <h3>{{ post['title'] }}</h3>
                 <p class="post-date">{{ post['date'] }}</p>
