@@ -3,8 +3,10 @@
 ## Features to Implement
 - [x] Add a brief of my resume to the home page.
 - [ ] Have the website sync my resume automatically from linkedin.
+- [ ] Add an icon to the tab of browser
 
 ## Bugs to Fix
 - [x] Fix broken links on the homepage
 - [x] Fix the incorrect rendering of some markdown grammars
+- [ ] Fix the excerpt on the homepage being mistakenly rendered into links.
 
