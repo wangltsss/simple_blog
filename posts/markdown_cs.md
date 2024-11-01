@@ -193,21 +193,21 @@ Navigating Markdown's syntax can be straightforward with a handy cheat sheet. He
 
 | **Syntax**           | **Purpose**                   | **Example**                        |
 |----------------------|-------------------------------|------------------------------------|
-| `# Heading 1`        | Largest heading               | `# Heading 1`                      |
-| `## Heading 2`       | Second largest heading        | `## Heading 2`                     |
-| `### Heading 3`      | Third largest heading         | `### Heading 3`                    |
-| `**Bold Text**`      | Bold text                     | `**Bold Text**`                    |
-| `*Italic Text*`      | Italic text                   | `*Italic Text*`                    |
-| `~~Strikethrough~~`  | Strikethrough text            | `~~Strikethrough~~`                |
-| `[Link](URL)`        | Hyperlink                     | `[OpenAI](https://www.openai.com)`  |
-| `![Alt Text](URL)`   | Image                         | `![Alt Text](https://via.placeholder.com/150)` |
+| `# Heading 1`        | Largest heading               |  # Heading 1                     |
+| `## Heading 2`       | Second largest heading        | ## Heading 2                     |
+| `### Heading 3`      | Third largest heading         | ### Heading 3                    |
+| `**Bold Text**`      | Bold text                     | **Bold Text**                    |
+| `*Italic Text*`      | Italic text                   | *Italic Text*                    |
+| `~~Strikethrough~~`  | Strikethrough text            | ~~Strikethrough~~                |
+| `[Link](URL)`        | Hyperlink                     | [OpenAI](https://www.openai.com)  |
+| `![Alt Text](URL)`   | Image                         | ![Alt Text](https://via.placeholder.com/150) |
 
 ### Advanced Formatting
 
 | **Syntax**             | **Purpose**                       | **Example**                                     |
 |------------------------|-----------------------------------|-------------------------------------------------|
-| `> Blockquote`         | Blockquote                        | `> This is a blockquote.`                       |
-| `\` Code Span         | Inline code                       | ``Here is some `inline code`.``                  |
+| `> Blockquote`         | Blockquote                        | > This is a blockquote.                       |
+| `\` Code Span         | Inline code                       | Here is some `inline code`.                  |
 | ```` ```language ```` | Code block with syntax highlighting | See Below|
 ```python
 def hello_world():
@@ -218,18 +218,18 @@ def hello_world():
 
 | **Syntax**               | **Purpose**                      | **Example**                                     |
 |--------------------------|----------------------------------|-------------------------------------------------|
-| `- Item` or `* Item`     | Unordered list                   | `- First item`                                  |
-| `1. Item`                | Ordered list                     | `1. First item`                                 |
-| `- [ ] Task`             | Task list                        | `- [ ] Incomplete Task`                         |
-| `- [x] Task`             | Completed task in task list      | `- [x] Completed Task`                           |
+| `- Item` or `* Item`     | Unordered list                   | - First item                                 |
+| `1. Item`                | Ordered list                     | 1. First item                                 |
+| `- [ ] Task`             | Task list                        | - [ ] Incomplete Task                         |
+| `- [x] Task`             | Completed task in task list      | - [x] Completed Task                           |
 
 ### Media Embedding
 
 | **Syntax**               | **Purpose**                      | **Example**                                     |
 |--------------------------|----------------------------------|-------------------------------------------------|
-| `![Alt Text](URL)`       | Embed an image                   | `![Alt Text](https://via.placeholder.com/150)`   |
-| `[Link Text](URL)`       | Create a hyperlink               | `[OpenAI](https://www.openai.com)`               |
-| `<u>Underlined</u>`      | Underline text (HTML)            | `<u>Underlined Text</u>`                         |
+| `![Alt Text](URL)`       | Embed an image                   | ![Alt Text](https://via.placeholder.com/150)   |
+| `[Link Text](URL)`       | Create a hyperlink               | [OpenAI](https://www.openai.com)               |
+| `<u>Underlined</u>`      | Underline text (HTML)            | <u>Underlined Text</u>                         |
 
 ### Extensions and Plugins
 
@@ -238,9 +238,9 @@ Markdown can be extended with additional syntax and plugins for enhanced functio
 | **Extension**            | **Purpose**                      | **Example**                                     |
 |--------------------------|----------------------------------|-------------------------------------------------|
 | **Tables**               | Create tables                    | See [Adding Tables](#adding-tables)              |
-| **Footnotes**            | Add footnotes                    | `Here is a footnote[^1].`<br>`[^1]: Footnote text.` |
+| **Footnotes**            | Add footnotes                    | Here is a footnote[^1].`<br>`[^1]: Footnote text. |
 | **Task Lists**           | Create interactive task lists    | See [Lists](#lists)                              |
-| **LaTeX Math**           | Include mathematical notation    | `$E = mc^2$`                                     |
+| **LaTeX Math**           | Include mathematical notation    | $E = mc^2$                                     |
 
 ### Tips for Using the Cheat Sheet
 

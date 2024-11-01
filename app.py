@@ -2,12 +2,17 @@
 
 from flask import Flask, render_template, abort
 import os
-import markdown
 import frontmatter  # Using python-frontmatter to parse front matter
 from datetime import datetime
 import re  # For additional text processing if needed
+from markdown_it import MarkdownIt
+from mdit_py_plugins.tasklists import tasklists_plugin
+from mdit_py_plugins.footnote import footnote_plugin
 
 app = Flask(__name__)
+
+md = MarkdownIt("gfm-like", {"html": False, "linkify": True, "typographer": True}).use(tasklists_plugin).enable("table").use(footnote_plugin)
+md.enable(["linkify"])
 
 POSTS_DIR = 'posts'
 
@@ -36,22 +41,23 @@ def get_post_list():
                         break
                 excerpt_text = ' '.join(' '.join(excerpt_lines).split()[:30]) + '...' if word_count > 30 else ' '.join(excerpt_lines)
                 # Convert excerpt from Markdown to HTML
-                excerpt_html = markdown.markdown(
-                    excerpt_text,
-                    extensions=[
-                        'fenced_code',       # Enables fenced code blocks
-                        'codehilite',        # Enables syntax highlighting
-                        'extra',             # Extra Markdown features
-                        'sane_lists',        # Improves list handling
-                        'smarty',            # Converts quotes and dashes to smart quotes and dashes
-                    ],
-                    extension_configs={
-                        'codehilite': {
-                            'guess_lang': False,  # Disable language guessing
-                            'css_class': 'highlight',  # CSS class for styling
-                        },
-                    }
-                )
+                # excerpt_html = markdown.markdown(
+                #     excerpt_text,
+                #     extensions=[
+                #         'fenced_code',       # Enables fenced code blocks
+                #         'codehilite',        # Enables syntax highlighting
+                #         'extra',             # Extra Markdown features
+                #         'sane_lists',        # Improves list handling
+                #         'smarty',            # Converts quotes and dashes to smart quotes and dashes
+                #     ],
+                #     extension_configs={
+                #         'codehilite': {
+                #             'guess_lang': False,  # Disable language guessing
+                #             'css_class': 'highlight',  # CSS class for styling
+                #         },
+                #     }
+                # )
+                excerpt_html = md.render(excerpt_text)
                 posts.append({
                     'slug': filename[:-3],
                     'title': post.get('title', 'Untitled'),
@@ -70,27 +76,28 @@ def get_post(slug):
     with open(filepath, 'r', encoding='utf-8') as f:
         post = frontmatter.load(f)
         # Convert Markdown to HTML with extensions
-        html = markdown.markdown(
-            post.content,
-            extensions=[
-                'fenced_code',       # Enables fenced code blocks
-                'codehilite',        # Enables syntax highlighting
-                'toc',               # Generates table of contents
-                'attr_list',         # Allows attribute lists in Markdown
-                'tables',            # Enables table syntax
-                'sane_lists',        # Improves list handling
-                'smarty',            # Converts quotes and dashes to smart quotes and dashes
-            ],
-            extension_configs={
-                'codehilite': {
-                    'guess_lang': False,  # Disable language guessing
-                    'css_class': 'highlight',  # CSS class for styling
-                },
-                'toc': {
-                    'permalink': True,    # Adds permalinks to headings
-                },
-            }
-        )
+        # html = markdown.markdown(
+        #     post.content,
+        #     extensions=[
+        #         'fenced_code',       # Enables fenced code blocks
+        #         'codehilite',        # Enables syntax highlighting
+        #         'toc',               # Generates table of contents
+        #         'attr_list',         # Allows attribute lists in Markdown
+        #         'tables',            # Enables table syntax
+        #         'sane_lists',        # Improves list handling
+        #         'smarty',            # Converts quotes and dashes to smart quotes and dashes
+        #     ],
+        #     extension_configs={
+        #         'codehilite': {
+        #             'guess_lang': False,  # Disable language guessing
+        #             'css_class': 'highlight',  # CSS class for styling
+        #         },
+        #         'toc': {
+        #             'permalink': True,    # Adds permalinks to headings
+        #         },
+        #     }
+        # )
+        html = md.render(post.content)
         return {
             'title': post.get('title', 'Untitled'),
             'date': post.get('date', ''),
