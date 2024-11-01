@@ -5,6 +5,6 @@
 - [ ] Have the website sync my resume automatically from linkedin.
 
 ## Bugs to Fix
-- [ ] Fix broken links on the homepage
-- [ ] Fix the incorrect rendering of some markdown grammars
+- [x] Fix broken links on the homepage
+- [x] Fix the incorrect rendering of some markdown grammars
 
